@@ -1,4 +1,4 @@
-﻿using DesafioFundamentos.Models;
+using DesafioFundamentos.Models;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
@@ -19,7 +19,7 @@ bool exibirMenu = true;
 
 while (exibirMenu)
 {
-    Console.Clear();
+    LimparTela();
     Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
@@ -28,7 +28,7 @@ while (exibirMenu)
 
     opcao = Console.ReadLine();
 
-    Console.Clear();
+    LimparTela();
 
     switch (opcao)
     {
@@ -56,7 +56,29 @@ while (exibirMenu)
     if (opcao != "4")
     {
         Console.WriteLine("Pressione uma tecla para continuar");
-        Console.ReadKey();
+        AguardarTecla();
     }
 }
 Console.WriteLine("O programa se encerrou");
+
+// Console.Clear falha quando a saída não é um terminal (entrada redirecionada, CI)
+static void LimparTela()
+{
+    if (!Console.IsOutputRedirected)
+    {
+        Console.Clear();
+    }
+}
+
+// Console.ReadKey falha com a entrada redirecionada; nesse caso lê uma linha
+static void AguardarTecla()
+{
+    if (Console.IsInputRedirected)
+    {
+        Console.ReadLine();
+    }
+    else
+    {
+        Console.ReadKey();
+    }
+}

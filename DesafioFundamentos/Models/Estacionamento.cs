@@ -85,6 +85,11 @@ namespace DesafioFundamentos.Models
 
         private bool ValidarPlaca(string placa)
         {
+            if (string.IsNullOrWhiteSpace(placa))
+            {
+                return false;
+            }
+
             string padraoPlaca = @"^([A-Z]{3}-\d{4}|[A-Z]{3}\d[A-Z]\d{2})$";
             return Regex.IsMatch(placa.Trim(), padraoPlaca, RegexOptions.IgnoreCase);
         }

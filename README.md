@@ -1,4 +1,39 @@
-# DIO - Trilha .NET - Fundamentos
+# Desafio .NET: sistema de estacionamento
+
+[![Build e testes](https://github.com/erkmnasc/trilha-net-fundamentos-desafio/actions/workflows/ci.yml/badge.svg)](https://github.com/erkmnasc/trilha-net-fundamentos-desafio/actions/workflows/ci.yml)
+
+Minha solução do desafio de projeto da trilha .NET Fundamentos da DIO, com
+testes unitários em xUnit.
+
+## O que foi feito
+
+- Classe `Estacionamento` completa: cadastro com validação de placa (padrão
+  antigo `ABC-1234` e Mercosul `ABC1D23`), remoção com cálculo do valor
+  (preço inicial + preço por hora × horas) e listagem.
+- Menu interativo no `Program.cs`, que também funciona com a entrada
+  redirecionada (útil para rodar em script ou no CI).
+- Projeto `DesafioFundamentos.Tests` com 11 testes: placas válidas e
+  inválidas, cálculo do valor, horas inválidas, veículo inexistente e
+  remoção da lista.
+
+## Como rodar
+
+Precisa do .NET 8 SDK.
+
+```bash
+dotnet run --project DesafioFundamentos   # abre o menu
+dotnet test                               # roda os testes
+```
+
+## CI
+
+O GitHub Actions compila e roda os testes a cada push na `main`, em pull
+requests e manualmente (`.github/workflows/ci.yml`).
+
+---
+
+## Enunciado original
+### DIO - Trilha .NET - Fundamentos
 www.dio.me
 
 ## Desafio de projeto
