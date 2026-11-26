@@ -28,7 +28,7 @@ dotnet test                               # roda os testes
 ## CI
 
 O GitHub Actions compila e roda os testes a cada push na `main`, em pull
-requests e manualmente (`.github/workflows/ci.yml`).
+requests, manualmente e toda segunda-feira (`.github/workflows/ci.yml`).
 
 ---
 
